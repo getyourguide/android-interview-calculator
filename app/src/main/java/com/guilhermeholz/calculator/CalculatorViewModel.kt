@@ -6,30 +6,30 @@ import android.view.View
 class CalculatorViewModel : ViewModel() {
 
     fun onDigitClicked(view: View) {
-        //TODO digit function
+        //TODO onDigitClicked function
     }
 
     fun onClearClicked(view: View) {
-        //TODO digit function
+        //TODO onClearClicked function
     }
 
     fun onDivisionClicked(view: View) {
-        //TODO digit function
+        //TODO onDivisionClicked function
     }
 
     fun onEqualClicked(view: View) {
-        //TODO digit function
+        //TODO onEqualClicked function
     }
 
     fun onMultiplyClicked(view: View) {
-        //TODO digit function
+        //TODO onMultiplyClicked function
     }
 
     fun onMinusClicked(view: View) {
-        //TODO digit function
+        //TODO onMinusClicked function
     }
 
     fun onPlusClicked(view: View) {
-        //TODO digit function
+        //TODO onPlusClicked function
     }
 }
