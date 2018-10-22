@@ -1,7 +1,6 @@
 package com.guilhermeholz.calculator
 
 import android.arch.lifecycle.ViewModel
-import android.view.View
 import java.text.DecimalFormat
 
 class CalculatorViewModel : ViewModel() {
@@ -14,31 +13,31 @@ class CalculatorViewModel : ViewModel() {
         private val format = DecimalFormat("#.########")
     }
 
-    fun onDigitClicked(view: View) {
+    fun onDigitClicked(digit: Char) {
         //TODO onDigitClicked function
     }
 
-    fun onClearClicked(view: View) {
+    fun onClearClicked() {
         //TODO onClearClicked function
     }
 
-    fun onDivisionClicked(view: View) {
+    fun onDivisionClicked() {
         //TODO onDivisionClicked function
     }
 
-    fun onEqualClicked(view: View) {
+    fun onEqualClicked() {
         //TODO onEqualClicked function
     }
 
-    fun onMultiplyClicked(view: View) {
+    fun onMultiplyClicked() {
         //TODO onMultiplyClicked function
     }
 
-    fun onMinusClicked(view: View) {
+    fun onMinusClicked() {
         //TODO onMinusClicked function
     }
 
-    fun onPlusClicked(view: View) {
+    fun onPlusClicked() {
         //TODO onPlusClicked function
     }
 }
