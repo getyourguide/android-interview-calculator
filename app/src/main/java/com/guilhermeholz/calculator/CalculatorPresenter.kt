@@ -3,7 +3,7 @@ package com.guilhermeholz.calculator
 import android.arch.lifecycle.ViewModel
 import java.text.DecimalFormat
 
-class CalculatorViewModel : ViewModel() {
+class CalculatorPresenter : ViewModel() {
 
     private enum class Operations {
         ADDITION, SUBTRACTION, MULTIPLICATION, DIVISION, NONE
@@ -12,6 +12,8 @@ class CalculatorViewModel : ViewModel() {
     companion object {
         private val format = DecimalFormat("#.########")
     }
+
+    var view: CalculatorView? = null
 
     fun onDigitInputed(digit: String) {
         //TODO onDigitInputed function

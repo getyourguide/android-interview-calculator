@@ -1,15 +1,14 @@
 package com.guilhermeholz.calculator
 
-import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
 
-class CalculatorActivity : AppCompatActivity() {
+class CalculatorActivity : AppCompatActivity(), CalculatorView {
 
-    private val viewmodel by lazy {
-        ViewModelProviders.of(this).get(CalculatorViewModel::class.java)
+    private val presenter by lazy {
+        CalculatorPresenter()
     }
 
     private val numbers by lazy {
@@ -23,19 +22,29 @@ class CalculatorActivity : AppCompatActivity() {
         initListeners()
     }
 
+    override fun onResume() {
+        super.onResume()
+        presenter.view = this
+    }
+
+    override fun onPause() {
+        super.onPause()
+        presenter.view = null
+    }
+
     private fun initListeners() {
         numbers.forEach { number ->
             number.setOnClickListener {
                 val digit = (it as TextView).text.toString()
-                viewmodel.onDigitInputed(digit)
+                presenter.onDigitInputed(digit)
             }
         }
 
-        operator_clear.setOnClickListener { viewmodel.onClearInputed() }
-        operator_equals.setOnClickListener { viewmodel.onEqualInputed() }
-        operator_plus.setOnClickListener { viewmodel.onPlusInputed() }
-        operator_minus.setOnClickListener { viewmodel.onMinusInputed() }
-        operator_multiply.setOnClickListener { viewmodel.onMultiplyInputed() }
-        operator_divide.setOnClickListener { viewmodel.onDivisionInputed() }
+        operator_clear.setOnClickListener { presenter.onClearInputed() }
+        operator_equals.setOnClickListener { presenter.onEqualInputed() }
+        operator_plus.setOnClickListener { presenter.onPlusInputed() }
+        operator_minus.setOnClickListener { presenter.onMinusInputed() }
+        operator_multiply.setOnClickListener { presenter.onMultiplyInputed() }
+        operator_divide.setOnClickListener { presenter.onDivisionInputed() }
     }
 }
