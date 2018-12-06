@@ -7,9 +7,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class CalculatorActivity : AppCompatActivity(), CalculatorView {
 
-    private val presenter by lazy {
-        CalculatorPresenter()
-    }
+    private val presenter = CalculatorPresenter(this)
 
     private val numbers by lazy {
         listOf(number_0, number_1, number_2, number_3, number_4,
@@ -20,16 +18,6 @@ class CalculatorActivity : AppCompatActivity(), CalculatorView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initListeners()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        presenter.view = this
-    }
-
-    override fun onPause() {
-        super.onPause()
-        presenter.view = null
     }
 
     private fun initListeners() {
